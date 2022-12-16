@@ -153,7 +153,7 @@
                               <ul>
                                 <li><a href="course-instructors.html">Course Instructors</a></li>
                                 <li><a href="forums.html">Community Forums</a></li>
-                                <li><a href="./course-login.php">Login & Register</a></li>
+                                <li><a href="./course_register.php">Registration Now</a></li>
                                 <li><a href="course-account.html">Edit Your Account</a></li>
                                 <li><a href="course-testimonials.html">Happy Students</a></li>
                                 <li><a href="course-faqs.html">Friendly Asked Questions</a></li>
@@ -222,7 +222,7 @@
                 <li><a href="page-contact.html">Contact</a></li>
               </ul>
               <ul class="nav navbar-nav navbar-right">
-                <li><a class="btn btn-primary" href="./course-login.php"><i class="fa fa-sign-in"></i> Register Now</a>
+                <li><a class="btn btn-primary" href="./course_register.php"><i class="fa fa-sign-in"></i> Register Now</a>
                 </li>
               </ul>
             </div>
@@ -242,7 +242,7 @@
                 data-speed="1000" data-start="600" data-easing="Power3.easeInOut" data-splitin="none"
                 data-splitout="none" data-elementdelay="0.1" data-endelementdelay="0.1" data-endspeed="1000"
                 style="z-index: 9; max-width: auto; max-height: auto; white-space: nowrap;"><i
-                  class="fa fa-graduation-cap"></i> Learn<strong>PLUS</strong> Site Template
+                  class="fa fa-graduation-cap"></i> Onlin<strong>PLUS</strong> Site Template
               </div>
               <div class="tp-caption slider_layer_02 text-center lft tp-resizeme" data-x="center" data-y="320"
                 data-speed="1000" data-start="800" data-easing="Power3.easeInOut" data-splitin="none"

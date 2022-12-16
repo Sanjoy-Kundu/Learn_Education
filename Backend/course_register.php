@@ -59,46 +59,92 @@ session_start();
 <div class="panel panel-login">
 <div class="panel-heading">
 <div class="row">
-<div class="col-xs-6">
-<a href="#" class="active" id="login-form-link">Login</a>
-</div>
 
+<div class="col-xs-6">
+<a href="#" id="register-form-link">Register</a>
+</div>
 </div>
 <hr>
 </div>
 <div class="panel-body">
 <div class="row">
+  <?php if(isset($_SESSION["insert_successfully"])):?>
+      <div class="alert alert-success"><?=$_SESSION["insert_successfully"] ?></div>
+      <?php endif;?>
 <div class="col-lg-12">
-<form id="login-form" action="#" method="post" role="form" style="display: block;">
+<!---------Registration form------->
+<form id="register-form" action="register_validation.php" method="POST" >
 <div class="form-group">
-<input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="">
+<input type="text" name="user_name" id="username" tabindex="1" class="form-control" placeholder="Username" value="">
+    <?php if(isset($_SESSION["name_error"])):?>
+      <span class="text-danger"><?=$_SESSION["name_error"]?></span>
+      <?php endif;?>
 </div>
 <div class="form-group">
-<input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
+<input type="email" name="email" id="email" tabindex="1" class="form-control" placeholder="Email Address" value="">
+<?php if(isset($_SESSION["email_error"])):?>
+      <span class="text-danger"><?=$_SESSION["email_error"]?></span>
+      <?php endif;?>
 </div>
-<div class="form-group text-center">
-<input type="checkbox" tabindex="3" class="" name="remember" id="remember">
-<label for="remember"> &nbsp; Remember Me</label>
+<div class="form-group">
+<input type="text" name="mobile" id="mobile" tabindex="1" class="form-control" placeholder="Mobile Number" value="">
+<?php if(isset($_SESSION["mobile_error"])):?>
+      <span class="text-danger"><?=$_SESSION["mobile_error"]?></span>
+      <?php endif;?>
+</div>
+<div class="form-group">
+<input type="text" name="blood_group" id="blood_group" tabindex="1" class="form-control" placeholder="Blood Group" value="">
+<?php if(isset($_SESSION["blood_group_error"])):?>
+      <span class="text-danger"><?=$_SESSION["blood_group_error"]?></span>
+      <?php endif;?>
+</div>
+<div class="form-group">
+<input type="text" name="address" id="address" tabindex="1" class="form-control" placeholder="Your Address" value="">
+<?php if(isset($_SESSION["address_error"])):?>
+      <span class="text-danger"><?=$_SESSION["address_error"]?></span>
+      <?php endif;?>
+</div>
+<div class="form-group">
+  <label for="date">Application Date</label>
+  <input type="date" name="application_date" id="date" style="width: 100%;">
+  <?php if(isset($_SESSION["application_date_error"])):?>
+      <span class="text-danger"><?=$_SESSION["application_date_error"]?></span>
+      <?php endif;?>
+</div>
+
+
+<div class="form-group">
+<input type="text" name="class" id="class" tabindex="1" class="form-control" placeholder="Your Class" value="">
+<?php if(isset($_SESSION["class_error"])):?>
+      <span class="text-danger"><?=$_SESSION["class_error"]?></span>
+      <?php endif;?>
+</div>
+
+
+<div class="form-group">
+  <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
+  <?php if(isset($_SESSION["password_error"])):?>
+      <span class="text-danger"><?=$_SESSION["password_error"]?></span>
+      <?php endif;?>
+</div>
+<div class="form-group">
+<input type="password" name="confirm_password" id="confirm-password" tabindex="2" class="form-control" placeholder="Confirm Password">
+<?php if(isset($_SESSION["confirm_password_error"])):?>
+      <span class="text-danger"><?=$_SESSION["confirm_password_error"]?></span>
+      <?php endif;?>
 </div>
 <div class="form-group">
 <div class="row">
 <div class="col-sm-12">
-<button type="submit" class="form-control btn btn-default">Login Account</button>
+<?php session_unset();?>
+<button type="submit" class="form-control btn btn-default btn-block">Register an Account</button>
+<p>Already Have an Account ? <span class="text-danger"><a href="course-login.php">Log In</a></span></p>
 </div>
-</div>
-</div>
-<div class="form-group">
-<div class="row">
-<div class="col-lg-12">
-<div class="text-center">
-<a href="#" tabindex="5" class="forgot-password">Forgot Password?</a>
-</div>
-</div>
-<p>XCreate a new Account ? <span class="text-danger"><a href="course_register.php">Registration</a></span></p>
+
 </div>
 </div>
 </form>
-
+<!-------Registration end--->
 </div>
 </div>
 </div>
