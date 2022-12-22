@@ -90,6 +90,8 @@ require_once 'db_connection.php';
 		if($_POST["password"] !== $_POST["confirm_password"]){
 			$_SESSION["confirm_password_error"] = "Your password and confirm password dosen't match";
 			$error_status = true;
+		}else{
+			$_SESSION["your_password"] = $userConfirmPassword;
 		}
 		
 
@@ -102,14 +104,41 @@ require_once 'db_connection.php';
 		header("location: course_register.php");
 	}else{
 	
+	//second check insert email
+		$user_email_check = "SELECT COUNT(*)AS STATUS FROM `registration` WHERE student_email = '$userEmail'";
+		$user_email_check_query = mysqli_query($conn, $user_email_check);
+		$user_email_check_query_array = mysqli_fetch_assoc($user_email_check_query);
+		//print_r($user_email_check_query_array);
 
+		if($user_email_check_query_array['STATUS'] == 0){
+			$encrypted_password = md5($userPassword);
+				//first check insert
+				 $information_insert = "INSERT INTO `registration`(`student_name`, `student_email`, `student_phone`, `student_address`, `student_blood_group`, `student_class`, `student_password`) VALUES ('$userName','$userEmail','$userMobile','$userAddress','$bloodGroup','$userClass','$encrypted_password')";
+		
+				$information_connection = mysqli_query($conn, $information_insert);
+
+				if($information_connection){
+						$_SESSION["insert_successfully"] = "Your Registration Successfully. Please Login Your Account";
+						/* header('location: course_register.php');  */
+						header('location: course-login.php');  
+					}
+			}else{
+				$_SESSION["email_error"] = "User Email alreay exist";
+				header('location: course_register.php');
+			}
+
+	
+
+	/* 	//first check insert
 		$information_insert = "INSERT INTO `registration`(`student_name`, `student_email`, `student_phone`, `student_address`, `student_blood_group`, `student_class`, `student_password`) VALUES ('$userName','$userEmail','$userMobile','$userAddress','$bloodGroup','$userClass','$userPassword')";
-
 		$information_connection = mysqli_query($conn, $information_insert);
+		$information_connection_array = mysqli_fetch_assoc($information_connection);
+
 		if($information_connection){
-			$_SESSION["insert_successfully"] = "Data insert successfully";
- 			header('location: course_register.php'); 
-		}
+			$_SESSION["insert_successfully"] = "Your Registration Successfully. Please Login Your Account";
+ 		 header('location: course_register.php');  
+ 			 header('location: course-login.php');  
+		} */
 	
 	} 
 

@@ -75,31 +75,31 @@ session_start();
 <!---------Registration form------->
 <form id="register-form" action="register_validation.php" method="POST" >
 <div class="form-group">
-<input type="text" name="user_name" id="username" tabindex="1" class="form-control" placeholder="Username" value="">
+<input type="text" name="user_name" id="username" tabindex="1" class="form-control" placeholder="Username" value="<?php if(isset($_SESSION["name"])){echo $_SESSION["name"];}?>">
     <?php if(isset($_SESSION["name_error"])):?>
       <span class="text-danger"><?=$_SESSION["name_error"]?></span>
       <?php endif;?>
 </div>
 <div class="form-group">
-<input type="email" name="email" id="email" tabindex="1" class="form-control" placeholder="Email Address" value="">
+<input type="email" name="email" id="email" tabindex="1" class="form-control" placeholder="Email Address" value="<?php if(isset($_SESSION["email"])){echo $_SESSION["email"];}?>">
 <?php if(isset($_SESSION["email_error"])):?>
       <span class="text-danger"><?=$_SESSION["email_error"]?></span>
       <?php endif;?>
 </div>
 <div class="form-group">
-<input type="text" name="mobile" id="mobile" tabindex="1" class="form-control" placeholder="Mobile Number" value="">
+<input type="text" name="mobile" id="mobile" tabindex="1" class="form-control" placeholder="Mobile Number" value="<?php if(isset($_SESSION["mobile"])){echo $_SESSION["mobile"];}?>">
 <?php if(isset($_SESSION["mobile_error"])):?>
       <span class="text-danger"><?=$_SESSION["mobile_error"]?></span>
       <?php endif;?>
 </div>
 <div class="form-group">
-<input type="text" name="blood_group" id="blood_group" tabindex="1" class="form-control" placeholder="Blood Group" value="">
+<input type="text" name="blood_group" id="blood_group" tabindex="1" class="form-control" placeholder="Blood Group" value="<?php if(isset($_SESSION["blood_group"])){echo $_SESSION["blood_group"];}?>">
 <?php if(isset($_SESSION["blood_group_error"])):?>
       <span class="text-danger"><?=$_SESSION["blood_group_error"]?></span>
       <?php endif;?>
 </div>
 <div class="form-group">
-<input type="text" name="address" id="address" tabindex="1" class="form-control" placeholder="Your Address" value="">
+<input type="text" name="address" id="address" tabindex="1" class="form-control" placeholder="Your Address" value="<?php if(isset($_SESSION["your_address"])){echo $_SESSION["your_address"];}?>">
 <?php if(isset($_SESSION["address_error"])):?>
       <span class="text-danger"><?=$_SESSION["address_error"]?></span>
       <?php endif;?>
@@ -114,7 +114,7 @@ session_start();
 
 
 <div class="form-group">
-<input type="text" name="class" id="class" tabindex="1" class="form-control" placeholder="Your Class" value="">
+<input type="text" name="class" id="class" tabindex="1" class="form-control" placeholder="Your Class" value="<?php if(isset($_SESSION["user_class"])){echo $_SESSION["user_class"];}?>">
 <?php if(isset($_SESSION["class_error"])):?>
       <span class="text-danger"><?=$_SESSION["class_error"]?></span>
       <?php endif;?>
