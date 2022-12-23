@@ -113,7 +113,7 @@ require_once 'db_connection.php';
 		if($user_email_check_query_array['STATUS'] == 0){
 			$encrypted_password = md5($userPassword);
 				//first check insert
-				 $information_insert = "INSERT INTO `registration`(`student_name`, `student_email`, `student_phone`, `student_address`, `student_blood_group`, `student_class`, `student_password`) VALUES ('$userName','$userEmail','$userMobile','$userAddress','$bloodGroup','$userClass','$encrypted_password')";
+				 $information_insert = "INSERT INTO `registration`(`student_name`, `student_email`, `student_phone`, `student_address`, `student_blood_group`, `student_class`,`application_date`, `student_password`) VALUES ('$userName','$userEmail','$userMobile','$userAddress','$bloodGroup','$userClass','$userApplication_date','$encrypted_password')";
 		
 				$information_connection = mysqli_query($conn, $information_insert);
 

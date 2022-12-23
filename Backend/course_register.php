@@ -87,7 +87,7 @@ session_start();
       <?php endif;?>
 </div>
 <div class="form-group">
-<input type="text" name="mobile" id="mobile" tabindex="1" class="form-control" placeholder="Mobile Number" value="<?php if(isset($_SESSION["mobile"])){echo $_SESSION["mobile"];}?>">
+<input type="tel" name="mobile" id="mobile" tabindex="1" class="form-control" placeholder="Mobile Number" value="<?php if(isset($_SESSION["mobile"])){echo $_SESSION["mobile"];}?>">
 <?php if(isset($_SESSION["mobile_error"])):?>
       <span class="text-danger"><?=$_SESSION["mobile_error"]?></span>
       <?php endif;?>
@@ -105,7 +105,7 @@ session_start();
       <?php endif;?>
 </div>
 <div class="form-group">
-  <label for="date">Application Date</label>
+  <label for="date">Date of Birth</label>
   <input type="date" name="application_date" id="date" style="width: 100%;">
   <?php if(isset($_SESSION["application_date_error"])):?>
       <span class="text-danger"><?=$_SESSION["application_date_error"]?></span>
