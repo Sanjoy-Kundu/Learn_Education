@@ -75,7 +75,7 @@ session_start();
 <!---------Registration form------->
 <form id="register-form" action="register_validation.php" method="POST" >
 <div class="form-group">
-<input type="text" name="user_name" id="username" tabindex="1" class="form-control" placeholder="Username" value="<?php if(isset($_SESSION["name"])){echo $_SESSION["name"];}?>">
+<input type="text" name="user_name" id="username" tabindex="1" class="form-control" placeholder="Username" value="<?php if(isset( $_SESSION["name"])){echo  $_SESSION["name"];}?>">
     <?php if(isset($_SESSION["name_error"])):?>
       <span class="text-danger"><?=$_SESSION["name_error"]?></span>
       <?php endif;?>

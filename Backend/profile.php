@@ -80,9 +80,15 @@ session_start();
 <div class="course-image-widget">
 <img src="../Frontend/upload/xstudent_06.png.pagespeed.ic.M4STWuf1XS.png" alt="" class="img-responsive"></div>
   <div class="form-group mt-5">
-<form role="form" method="post" >
+    <?php if(isset($_SESSION["photo_error"])):?>
+        <div class="alert alert-danger"><?=$_SESSION["photo_error"]?></div>
+        <?php
+         endif;
+         unset($_SESSION["photo_error"]);
+        ?>
+<form role="form" action="image_validation.php" method="post" enctype="multipart/form-data">
 <label>Upload Photo</label>
-<input type="file" class="btn btn-primary w-50"></div>
+<input type="file" class="btn btn-primary w-50" name="profile_photo"></div>
 <div class="form-groups">
   <button type="submit" class="btn btn-success">Change Photo</button>
   </form>
@@ -90,7 +96,7 @@ session_start();
 <div class="course-meta" style="margin-top: 20px;">
   <h3>Name: <span class="text-primary"><?=$all_information_query_array['student_name']?></span></h3>
 <hr>
-<h4>Email: <span><b>sanjoy@gmail.com</b></span> </h4>
+<h4>Email: <span><b><?=$all_information_query_array['student_email']?></b></span> </h4>
 <hr>
 </div>
 </div>
